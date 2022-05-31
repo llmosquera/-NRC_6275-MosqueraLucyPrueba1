@@ -14,7 +14,16 @@ if __name__ == "__main__":
 def index():
     return render_template('index.html')
  #Iniciamos la aplicacion
+  #Ruta de la página tienda con los controladores
+@app.route('/tienda')
+def tienda():
+    return render_template('tienda.html')
 
+  #Ruta de la página tienda con los controladores
+@app.route('/Admin')
+def Admin():
+    return render_template('Admin.html')
+#Reinialice automaticamente
 if __name__ == '__main__':
     app.run(debug=True)
 

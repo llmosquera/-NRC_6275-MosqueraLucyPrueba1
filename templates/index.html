@@ -13,7 +13,15 @@
     <title>Primera Prueba1</title>
 </head>
 <body>
+      <!--  Codigo para realizar CABEZERA de las páginas-->
+    
+  <!-- NAVBAR -->
+<!-- --------------------------------------------- -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light cebezera">
+  <a class="navbar-brand" href="/">Clientes</a>
+</nav>
     <!--TABLA VISUALIZAR-->
+    <center>
     <div class="sitio">
         <div class="contenedor">
             <h1>DATOS DEL CLIENTE</h1>
@@ -38,15 +46,15 @@
                     <h3>Formulario de cliente</h3>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nombre</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre"  style="width: 350px;">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Celular</label>
-                        <input type="numeros" class="form-control" id="inputEmail4" placeholder="celular">
+                        <input type="numeros" class="form-control" id="inputEmail4" placeholder="celular"  style="width: 350px;">
                     </div> 
                     <div class="form-group col-md-4">
                         <label for="inputState">Estado</label>
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" class="form-control"  style="width: 350px;">
                           <option selected></option>
                           <option >Normal</option>
                           <option>Caso</option>
@@ -56,31 +64,93 @@
                     <h4>Registro</h4>
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">Correo Eléctronico</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email"  style="width: 350px;">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password"  style="width: 350px;"> 
                   </div>
                 </div>
                
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">Ciudad de la tienda</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity"  style="width: 350px;">
                   </div>
-                </div>
+                </div> <br>
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Revisar
-                    </label>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Registrar</button>
               </form>
         </div>
     </div>
+</center>
 </body>
+<style>
+    /*navbar*/
+    
+    .collapse {
+      justify-content: center;
+    }
+    .navbar-brand {
+      padding-left: 10%;
+      color: black !important;
+      font-size: 20px;
+    }
+    .cebezera {
+      background-color: #FAD7A0 !important;
+    }
+  </style>
+  <script>
+    /*Variable para definir a nuesta tabla*/
+    var tIndex,
+        table = document.getElementById("table");
+
+    /*verificación si existe o no datos en el formulario*/
+    function verificacionDatos() {
+        var isEmpty = false,
+            tarea = document.getElementById("nombre").value,
+            prioridad = document.getElementById("celular").value,
+            estado = document.getElementById("estado").value,
+            correoelectronico = document.getElementById("estado").value;
+
+        if (tarea === "") {
+            alert("Ingrese su nombre y apellido");
+            isEmpty = true;
+        } else if (estado === "") {
+            alert("Ingrese celular");
+            isEmpty = true;
+        } else if (estado === "") {
+            alert("Ingrese estado");
+            isEmpty = true;
+        } else if (correoelectronico === "") {
+            alert("Ingrese su estado");
+            isEmpty = true;
+        }
+        return isEmpty;
+    }
+     /*Función para agregar datos por celda*/
+     function agregarDatos() {
+        if (!verificacionDatos()) {
+            var newRow = table.insertRow(table.length),
+                cell1 = newRow.insertCell(0),
+                cell2 = newRow.insertCell(1),
+                cell3 = newRow.insertCell(2),
+
+                tarea = document.getElementById("nombre").value,
+                prioridad = document.getElementById("celular").value,
+                estado = document.getElementById("estado").value;
+
+            cell1.innerHTML = tarea;
+            cell2.innerHTML = prioridad;
+            cell3.innerHTML = estado;
+
+
+            /*Llama al elemento set y agrega*/
+            seleccionarDato();
+        }
+    }
+</script>
 </html>
